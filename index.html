@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom Cruise | Hollywood Icon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            scroll-behavior: smooth;
+        }
+        
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        
+        .gold-text {
+            color: #D4AF37;
+        }
+        
+        .gold-border {
+            border-color: #D4AF37;
+        }
+        
+        .movie-card {
+            transition: all 0.3s ease;
+            transform: scale(0.98);
+        }
+        
+        .movie-card:hover {
+            transform: scale(1);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #D4AF37;
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gold-text">TOM CRUISE</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#filmography" class="nav-link">Filmography</a>
+                    <a href="#awards" class="nav-link">Awards</a>
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                    <a href="#news" class="nav-link">News</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden gold-text">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-95 w-full">
+            <div class="flex flex-col space-y-4 px-6 py-4">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#filmography" class="nav-link">Filmography</a>
+                <a href="#awards" class="nav-link">Awards</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#news" class="nav-link">News</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center justify-center text-center relative">
+        <div class="container mx-auto px-6 z-10">
+            <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold mb-4 gold-text animate-fade-in">TOM CRUISE</h1>
+            <h2 class="text-xl md:text-3xl mb-8 animate-fade-in delay-100">HOLLYWOOD ICON • AWARD-WINNING ACTOR</h2>
+            <div class="animate-fade-in delay-200">
+                <a href="#about" class="inline-block px-8 py-3 border-2 gold-border text-white hover:bg-yellow-800 hover:bg-opacity-20 transition duration-300 rounded-md mr-4">Explore</a>
+                <a href="#filmography" class="inline-block px-8 py-3 bg-yellow-800 bg-opacity-70 text-white hover:bg-opacity-100 transition duration-300 rounded-md">Filmography</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-fade-in delay-300">
+            <a href="#about" class="text-white text-2xl animate-bounce">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-black bg-opacity-90">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 gold-text text-center">ABOUT</h2>
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/3 mb-8 lg:mb-0 lg:pr-12">
+                    <img src="https://flxt.tmsimg.com/assets/378_v9_be.jpg" alt="Tom Cruise" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="lg:w-2/3">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 gold-text">Thomas Cruise Mapother IV</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Born on July 3, 1962, Tom Cruise is one of Hollywood's most recognizable and highest-paid actors. Known for his charismatic screen presence and dedication to performing his own stunts, Cruise has starred in over 40 films and has received numerous accolades
+                        throughout his career spanning four decades.
+                    </p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Cruise first rose to fame with roles in <span class="gold-text">Risky Business (1983)</span> and <span class="gold-text">Top Gun (1986)</span>, establishing himself as a leading man in Hollywood. His career continued to flourish
+                        with critically acclaimed performances in <span class="gold-text">Rain Man (1988)</span>, <span class="gold-text">A Few Good Men (1992)</span>, and <span class="gold-text">Jerry Maguire (1996)</span>, the latter earning him a Golden
+                        Globe Award and Academy Award nomination.
+                    </p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        In recent years, Cruise has become synonymous with the <span class="gold-text">Mission: Impossible</span> franchise, performing increasingly daring stunts that have become legendary in Hollywood. His commitment to his craft and
+                        his ability to consistently deliver box office hits have cemented his status as one of the most bankable stars in cinema history.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-8">
+                        <div class="bg-gray-900 bg-opacity-50 px-4 py-2 rounded-md">
+                            <span class="gold-text block text-sm">Born</span>
+                            <span>July 3, 1962</span>
+                        </div>
+                        <div class="bg-gray-900 bg-opacity-50 px-4 py-2 rounded-md">
+                            <span class="gold-text block text-sm">Birthplace</span>
+                            <span>Syracuse, New York, U.S.</span>
+                        </div>
+                        <div class="bg-gray-900 bg-opacity-50 px-4 py-2 rounded-md">
+                            <span class="gold-text block text-sm">Occupation</span>
+                            <span>Actor, Producer</span>
+                        </div>
+                        <div class="bg-gray-900 bg-opacity-50 px-4 py-2 rounded-md">
+                            <span class="gold-text block text-sm">Years Active</span>
+                            <span>1981–present</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filmography Section -->
+    <section id="filmography" class="py-20 bg-gray-900 bg-opacity-90">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 gold-text text-center">FILMOGRAPHY</h2>
+
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button type="button" class="px-4 py-2 text-sm font-medium rounded-l-lg bg-yellow-800 text-white">
+                        All
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium bg-gray-800 text-white hover:bg-gray-700">
+                        1980s
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium bg-gray-800 text-white hover:bg-gray-700">
+                        1990s
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium bg-gray-800 text-white hover:bg-gray-700">
+                        2000s
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium rounded-r-lg bg-gray-800 text-white hover:bg-gray-700">
+                        2010s-Present
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Movie 1 -->
+                <div class="movie-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.bi0NlSNlHDo7zFGfw4CQtAHaE8?pid=Api&P=0&h=180" alt="Mission: Impossible" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <button class="bg-yellow-800 bg-opacity-80 text-white rounded-full p-4 hover:bg-opacity-100 transition duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 gold-text">Mission: Impossible</h3>
+                        <div class="flex items-center text-gray-400 mb-4">
+                            <span class="mr-4">1996</span>
+                            <span class="flex items-center">
+                                <i class="fas fa-star gold-text mr-1"></i> 7.1/10
+                            </span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Ethan Hunt and his IMF team must track down a dangerous weapon before it falls into the wrong hands.
+                        </p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Action</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Thriller</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Adventure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie 2 -->
+                <div class="movie-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://thumbnails.cbsig.net/CBS_Production_Entertainment_VMS/2022/10/26/2091444291941/TGMAV_SAlone_16_9_1920x1080_1781067_1920x1080.jpg" alt="Top Gun" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <button class="bg-yellow-800 bg-opacity-80 text-white rounded-full p-4 hover:bg-opacity-100 transition duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 gold-text">Top Gun</h3>
+                        <div class="flex items-center text-gray-400 mb-4">
+                            <span class="mr-4">1986</span>
+                            <span class="flex items-center">
+                                <i class="fas fa-star gold-text mr-1"></i> 6.9/10
+                            </span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            As students at the United States Navy's elite fighter weapons school compete to be best in the class.
+                        </p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Action</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Drama</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie 3 -->
+                <div class="movie-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://i.pinimg.com/originals/77/90/e3/7790e3a55b63041fc4ed94efdf69a497.png" alt="Jerry Maguire" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <button class="bg-yellow-800 bg-opacity-80 text-white rounded-full p-4 hover:bg-opacity-100 transition duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 gold-text">Jerry Maguire</h3>
+                        <div class="flex items-center text-gray-400 mb-4">
+                            <span class="mr-4">1996</span>
+                            <span class="flex items-center">
+                                <i class="fas fa-star gold-text mr-1"></i> 7.3/10
+                            </span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            When a sports agent has a moral epiphany and is fired for expressing it, he decides to put his new philosophy to the test.
+                        </p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Comedy</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Drama</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Romance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie 4 -->
+                <div class="movie-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://facts.net/wp-content/uploads/2023/06/43-facts-about-the-movie-rain-man-1687347732.jpg" alt="Rain Man" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <button class="bg-yellow-800 bg-opacity-80 text-white rounded-full p-4 hover:bg-opacity-100 transition duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 gold-text">Rain Man</h3>
+                        <div class="flex items-center text-gray-400 mb-4">
+                            <span class="mr-4">1988</span>
+                            <span class="flex items-center">
+                                <i class="fas fa-star gold-text mr-1"></i> 8.0/10
+                            </span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Selfish yuppie Charlie Babbitt's father left a fortune to his savant brother Raymond and a pittance to Charlie.
+                        </p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Drama</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie 5 -->
+                <div class="movie-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://ntvb.tmsimg.com/assets/p14383_v_h10_aa.jpg?w=1280&h=720" alt="A Few Good Men" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <button class="bg-yellow-800 bg-opacity-80 text-white rounded-full p-4 hover:bg-opacity-100 transition duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 gold-text">A Few Good Men</h3>
+                        <div class="flex items-center text-gray-400 mb-4">
+                            <span class="mr-4">1992</span>
+                            <span class="flex items-center">
+                                <i class="fas fa-star gold-text mr-1"></i> 7.7/10
+                            </span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Military lawyer Lieutenant Daniel Kaffee defends Marines accused of murder. They contend they were acting under orders.
+                        </p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Drama</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Thriller</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie 6 -->
+                <div class="movie-card bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="http://eskipaper.com/images/the-last-samurai-2.jpg" alt="The Last Samurai" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <button class="bg-yellow-800 bg-opacity-80 text-white rounded-full p-4 hover:bg-opacity-100 transition duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 gold-text">The Last Samurai</h3>
+                        <div class="flex items-center text-gray-400 mb-4">
+                            <span class="mr-4">2003</span>
+                            <span class="flex items-center">
+                                <i class="fas fa-star gold-text mr-1"></i> 7.8/10
+                            </span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            An American military advisor embraces the Samurai culture he was hired to destroy after being captured in battle.
+                        </p>
+                        <div class="flex space-x-2">
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Action</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">Drama</span>
+                            <span class="bg-gray-700 text-xs px-2 py-1 rounded">History</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="px-6 py-3 border gold-border text-white hover:bg-yellow-800 hover:bg-opacity-20 transition duration-300 rounded-md">
+                    View Full Filmography
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="py-20 bg-black bg-opacity-90">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 gold-text text-center">AWARDS & RECOGNITION</h2>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- Timeline -->
+                <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-yellow-600 before:to-transparent">
+                    <!-- Award 1 -->
+                    <div class="relative pl-8 md:pl-0 timeline-item">
+                        <div class="flex flex-col items-start md:flex-row md:items-center">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-800 text-white shrink-0 md:order-1 md:translate-x-1/2">
+                                <i class="fas fa-trophy text-xl"></i>
+                            </div>
+                            <div class="grow md:pr-8 md:ml-8 md:mr-8">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <h3 class="text-xl font-bold gold-text">Golden Globe Award</h3>
+                                    <span class="md:ml-4 text-gray-400">1997</span>
+                                </div>
+                                <p class="text-gray-300 mt-2">Best Actor - Motion Picture Musical or Comedy for <span class="gold-text">Jerry Maguire</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Award 2 -->
+                    <div class="relative pl-8 md:pl-0 timeline-item">
+                        <div class="flex flex-col items-start md:flex-row md:items-center">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-800 text-white shrink-0 md:order-1 md:translate-x-1/2">
+                                <i class="fas fa-star text-xl"></i>
+                            </div>
+                            <div class="grow md:pr-8 md:ml-8 md:mr-8">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <h3 class="text-xl font-bold gold-text">Academy Award Nomination</h3>
+                                    <span class="md:ml-4 text-gray-400">1997</span>
+                                </div>
+                                <p class="text-gray-300 mt-2">Best Actor in a Leading Role for <span class="gold-text">Jerry Maguire</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Award 3 -->
+                    <div class="relative pl-8 md:pl-0 timeline-item">
+                        <div class="flex flex-col items-start md:flex-row md:items-center">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-800 text-white shrink-0 md:order-1 md:translate-x-1/2">
+                                <i class="fas fa-trophy text-xl"></i>
+                            </div>
+                            <div class="grow md:pr-8 md:ml-8 md:mr-8">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <h3 class="text-xl font-bold gold-text">Golden Globe Award</h3>
+                                    <span class="md:ml-4 text-gray-400">2000</span>
+                                </div>
+                                <p class="text-gray-300 mt-2">Best Actor - Motion Picture Drama for <span class="gold-text">Magnolia</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Award 4 -->
+                    <div class="relative pl-8 md:pl-0 timeline-item">
+                        <div class="flex flex-col items-start md:flex-row md:items-center">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-800 text-white shrink-0 md:order-1 md:translate-x-1/2">
+                                <i class="fas fa-star text-xl"></i>
+                            </div>
+                            <div class="grow md:pr-8 md:ml-8 md:mr-8">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <h3 class="text-xl font-bold gold-text">BAFTA Award Nomination</h3>
+                                    <span class="md:ml-4 text-gray-400">2000</span>
+                                </div>
+                                <p class="text-gray-300 mt-2">Best Actor in a Supporting Role for <span class="gold-text">Magnolia</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Award 5 -->
+                    <div class="relative pl-8 md:pl-0 timeline-item">
+                        <div class="flex flex-col items-start md:flex-row md:items-center">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-800 text-white shrink-0 md:order-1 md:translate-x-1/2">
+                                <i class="fas fa-award text-xl"></i>
+                            </div>
+                            <div class="grow md:pr-8 md:ml-8 md:mr-8">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <h3 class="text-xl font-bold gold-text">Saturn Award</h3>
+                                    <span class="md:ml-4 text-gray-400">2013</span>
+                                </div>
+                                <p class="text-gray-300 mt-2">Best Actor for <span class="gold-text">Oblivion</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Award 6 -->
+                    <div class="relative pl-8 md:pl-0 timeline-item">
+                        <div class="flex flex-col items-start md:flex-row md:items-center">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-800 text-white shrink-0 md:order-1 md:translate-x-1/2">
+                                <i class="fas fa-trophy text-xl"></i>
+                            </div>
+                            <div class="grow md:pr-8 md:ml-8 md:mr-8">
+                                <div class="flex flex-col md:flex-row md:items-center">
+                                    <h3 class="text-xl font-bold gold-text">Honorary Palme d'Or</h3>
+                                    <span class="md:ml-4 text-gray-400">2022</span>
+                                </div>
+                                <p class="text-gray-300 mt-2">Cannes Film Festival for lifetime achievement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg">
+                    <div class="text-4xl gold-text font-bold">3</div>
+                    <div class="text-gray-300 mt-2">Golden Globe Awards</div>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg">
+                    <div class="text-4xl gold-text font-bold">4</div>
+                    <div class="text-gray-300 mt-2">Golden Globe Nominations</div>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg">
+                    <div class="text-4xl gold-text font-bold">3</div>
+                    <div class="text-gray-300 mt-2">Academy Award Nominations</div>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg">
+                    <div class="text-4xl gold-text font-bold">1</div>
+                    <div class="text-gray-300 mt-2">BAFTA Award Nominations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gray-900 bg-opacity-90">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 gold-text text-center">GALLERY</h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Photo 1 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.d1jhcPidp4CHf8UiX4FpJQHaFj?pid=Api&P=0&h=180" alt="Tom Cruise" class="w-full h-48 object-cover">
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.dUQ2BoE1JYxZXq0p237sewHaFd?pid=Api&P=0&h=180" alt="Tom Cruise" class="w-full h-48 object-cover">
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.WSlogrrOcSs03Dv-aE-TFQHaFj?pid=Api&P=0&h=180" alt="Tom Cruise" class="w-full h-48 object-cover">
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.HRWw0Dy_5x3TpavCBqtZzAHaEK?pid=Api&P=0&h=180" alt="Tom Cruise" class="w-full h-48 object-cover">
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.aYOmJ9HjyEebAHuXh05UkAHaFj?pid=Api&P=0&h=180" alt="Tom Cruise" class="w-full h-48 object-cover">
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.Fvy8XbDzn4iBqJr04AJTmQHaE0?pid=Api&P=0&h=180" alt="Tom Cruise" class="w-full h-48 object-cover">
+                </div>
+
+                <!-- Photo 7 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.VkNiAI2tcOTskmYkNYkX3AHaEK?pid=Api&P=0&h=180" alt="Tom Cruise" class="w-full h-48 object-cover">
+                </div>
+
+                <!-- Photo 8 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.slLmHrwiSSwVIG34Ve7wnwHaE6?pid=Api&P=0&h=180" alt="Tom Cruise" class="w-full h-48 object-cover">
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="px-6 py-3 border gold-border text-white hover:bg-yellow-800 hover:bg-opacity-20 transition duration-300 rounded-md">
+                    View More Photos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-20 bg-black bg-opacity-90">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 gold-text text-center">NEWS & PRESS</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.MsZBNcstDJg9XjpQKE2YRAHaDt?pid=Api&P=0&h=180" alt="News" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-400 text-sm mb-2">
+                            <span>Entertainment Weekly</span>
+                            <span class="mx-2">•</span>
+                            <span>June 15, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 gold-text">Tom Cruise Returns for Mission: Impossible 8</h3>
+                        <p class="text-gray-300 mb-4">
+                            The Hollywood superstar is back for another death-defying installment of the blockbuster franchise, performing even more dangerous stunts.
+                        </p>
+                        <a href="#" class="inline-block gold-text hover:underline">Read More</a>
+                    </div>
+                </div>
+
+                <!-- News 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.-eLHMNrDN0VcrJRQxPmnKQHaE8?pid=Api&P=0&h=180" alt="News" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-400 text-sm mb-2">
+                            <span>Variety</span>
+                            <span class="mx-2">•</span>
+                            <span>May 22, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 gold-text">Tom Cruise Receives Honorary Palme d'Or at Cannes</h3>
+                        <p class="text-gray-300 mb-4">
+                            The actor was honored with a lifetime achievement award at the prestigious film festival, with a special screening of Top Gun: Maverick.
+                        </p>
+                        <a href="#" class="inline-block gold-text hover:underline">Read More</a>
+                    </div>
+                </div>
+
+                <!-- News 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.fs2_619FNbBBCjJFP8OmowHaEJ?pid=Api&P=0&h=180" alt="News" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-400 text-sm mb-2">
+                            <span>The Hollywood Reporter</span>
+                            <span class="mx-2">•</span>
+                            <span>April 5, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 gold-text">Tom Cruise to Star in New Space Movie Directed by Doug Liman</h3>
+                        <p class="text-gray-300 mb-4">
+                            The actor is set to become the first civilian to perform a spacewalk for a movie being filmed aboard the International Space Station.
+                        </p>
+                        <a href="#" class="inline-block gold-text hover:underline">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="px-6 py-3 border gold-border text-white hover:bg-yellow-800 hover:bg-opacity-20 transition duration-300 rounded-md">
+                    View All News
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 bg-opacity-90">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 gold-text text-center">CONTACT</h2>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 gold-text">Professional Inquiries</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-semibold gold-text mb-2">Management</h4>
+                                <p class="text-gray-300">Creative Artists Agency (CAA)</p>
+                                <p class="text-gray-300">2000 Avenue of the Stars</p>
+                                <p class="text-gray-300">Los Angeles, CA 90067</p>
+                                <p class="text-gray-300 mt-2">Phone: +1 (424) 288-2000</p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-lg font-semibold gold-text mb-2">Public Relations</h4>
+                                <p class="text-gray-300">PMK•BNC</p>
+                                <p class="text-gray-300">700 San Vicente Blvd, Suite G910</p>
+                                <p class="text-gray-300">West Hollywood, CA 90069</p>
+                                <p class="text-gray-300 mt-2">Phone: +1 (310) 854-4800</p>
+                            </div>
+
+                            <div>
+                                <h4 class="text-lg font-semibold gold-text mb-2">Film Production</h4>
+                                <p class="text-gray-300">Cruise/Wagner Productions</p>
+                                <p class="text-gray-300">5555 Melrose Avenue</p>
+                                <p class="text-gray-300">Hollywood, CA 90038</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 gold-text">Send a Message</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-300 mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-300 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-300 mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-300 mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent"></textarea>
+                            </div>
+                            <button type="submit" class="px-6 py-3 bg-yellow-800 text-white rounded-md hover:bg-yellow-700 transition duration-300 w-full">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold gold-text mb-4 md:mb-0">TOM CRUISE</div>
+                <div class="flex space-x-6 mb-4 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-imdb text-xl"></i>
+                    </a>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    &copy; 2023 Tom Cruise. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-fade-in');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+
+</html>
